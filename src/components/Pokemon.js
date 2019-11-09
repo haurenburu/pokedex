@@ -18,6 +18,30 @@ export default class Pokemon extends React.Component {
             sprite: null,
         };
     }
+    async componentDidMount() {
+        const url = this.props.url;
+        const res = await fetch(url);
+        const pokemon = await res.json();
+        
+
+        this.setState({
+            id: pokemon.id,
+            name: pokemon.name,
+            types: pokemon.types.length,
+            type1: pokemon.types[0].type.name,
+            type2: null,
+            next: 'https://pokeapi.co/api/v2/pokemon/'+(pokemon.id+1),
+            height: pokemon.height,
+            weight: pokemon.weight,
+            sprite: pokemon.sprites.front_default
+        });
+
+        if(pokemon.types.length === 2){
+            this.setState({
+                type2: pokemon.types[1].type.name,
+            })
+        }
+    }
     async prevPoke() {
         const url = 'https://pokeapi.co/api/v2/pokemon/'+(this.state.id-1);
         const res = await fetch(url);
@@ -56,30 +80,6 @@ export default class Pokemon extends React.Component {
             type1: pokemon.types[0].type.name,
             type2: null,
             prev: 'https://pokeapi.co/api/v2/pokemon/'+(pokemon.id-1),
-            next: 'https://pokeapi.co/api/v2/pokemon/'+(pokemon.id+1),
-            height: pokemon.height,
-            weight: pokemon.weight,
-            sprite: pokemon.sprites.front_default
-        });
-
-        if(pokemon.types.length === 2){
-            this.setState({
-                type2: pokemon.types[1].type.name,
-            })
-        }
-    }
-    async componentDidMount() {
-        const url = "https://pokeapi.co/api/v2/pokemon/1";
-        const res = await fetch(url);
-        const pokemon = await res.json();
-        
-
-        this.setState({
-            id: pokemon.id,
-            name: pokemon.name,
-            types: pokemon.types.length,
-            type1: pokemon.types[0].type.name,
-            type2: null,
             next: 'https://pokeapi.co/api/v2/pokemon/'+(pokemon.id+1),
             height: pokemon.height,
             weight: pokemon.weight,
