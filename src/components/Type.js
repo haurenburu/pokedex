@@ -1,32 +1,33 @@
 import React from 'react';
 
-class Type extends React.Component{
-    
+class Type extends React.Component {
     typo = tipo => {
-        if(tipo === "normal"){ return 'Normal';}
-        else if(tipo === "fighting"){ return 'Lutador'; }
-        else if(tipo === "flying"){ return 'Voador'; }
-        else if(tipo === "poison"){ return 'Veneno'; }
-        else if(tipo === "ground"){ return 'Solo'; }
-        else if(tipo === "rock"){ return 'Pedra'; }
-        else if(tipo === "bug"){ return 'Inseto'; }
-        else if(tipo === "ghost"){ return 'Fantasma'; }
-        else if(tipo === "steel"){ return 'Aco'; }
-        else if(tipo === "fire"){ return 'Fogo'; }
-        else if(tipo === "water"){ return 'Agua'; }
-        else if(tipo === "grass"){ return 'Grama'; }
-        else if(tipo === "electric"){ return 'Eletrico'; }
-        else if(tipo === "psychic"){ return 'Psiquico'; }
-        else if(tipo === "ice"){ return 'Gelo'; }
-        else if(tipo === "dragon"){ return 'Dragao'; }
-        else if(tipo === "dark"){ return 'Sombrio'; }
-        else if(tipo === "fairy"){ return 'Fada'; }
-        else { return 'Desconhecido'}
+        switch (tipo) {
+            case 'normal': return 'Normal';
+            case 'fighting': return 'Lutador';
+            case 'flying': return 'Voador';
+            case 'poison': return 'Veneno';
+            case 'ground': return 'Solo';
+            case 'rock': return 'Pedra';
+            case 'bug': return 'Inseto';
+            case 'ghost': return 'Fantasma';
+            case 'steel': return 'Aco';
+            case 'fire': return 'Fogo';
+            case 'water': return 'Agua';
+            case 'grass': return 'Grama';
+            case 'eletric': return 'Eletrico';
+            case 'psychic': return 'Psiquico';
+            case 'ice': return 'Gelo';
+            case 'dragon': return 'Dragao';
+            case 'dark': return 'Sombrio';
+            case 'fairy': return 'Fada';
+            default: return 'Desconhecido';
+        }
     }
-    render(){
-        return(
+    render() {
+        return (
             <div className={this.typo(this.props.type)}>
-               <p>{this.typo(this.props.type)}</p>
+                <p>{this.typo(this.props.type)}</p>
             </div>
         )
     }

@@ -22,7 +22,6 @@ export default class Pokemon extends React.Component {
         const url = 'https://pokeapi.co/api/v2/pokemon/' + this.props.url;
         const res = await fetch(url);
         const pokemon = await res.json();
-        
 
         this.setState({
             id: pokemon.id,
@@ -30,13 +29,13 @@ export default class Pokemon extends React.Component {
             types: pokemon.types.length,
             type1: pokemon.types[0].type.name,
             type2: null,
-            next: 'https://pokeapi.co/api/v2/pokemon/'+(pokemon.id+1),
+            next: 'https://pokeapi.co/api/v2/pokemon/' + (pokemon.id + 1),
             height: pokemon.height,
             weight: pokemon.weight,
             sprite: pokemon.sprites.front_default
         });
 
-        if(pokemon.types.length === 2){
+        if (pokemon.types.length === 2) {
             this.setState({
                 type2: pokemon.types[1].type.name,
             })
@@ -44,10 +43,9 @@ export default class Pokemon extends React.Component {
     }
 
     async pokeChange(dire) {
-        const url = 'https://pokeapi.co/api/v2/pokemon/'+(this.state.id + dire);
+        const url = 'https://pokeapi.co/api/v2/pokemon/' + (this.state.id + dire);
         const res = await fetch(url);
         const pokemon = await res.json();
-        
 
         this.setState({
             id: pokemon.id,
@@ -55,14 +53,14 @@ export default class Pokemon extends React.Component {
             types: pokemon.types.length,
             type1: pokemon.types[0].type.name,
             type2: null,
-            prev: 'https://pokeapi.co/api/v2/pokemon/'+(pokemon.id-1),
-            next: 'https://pokeapi.co/api/v2/pokemon/'+(pokemon.id+1),
+            prev: 'https://pokeapi.co/api/v2/pokemon/' + (pokemon.id - 1),
+            next: 'https://pokeapi.co/api/v2/pokemon/' + (pokemon.id + 1),
             height: pokemon.height,
             weight: pokemon.weight,
             sprite: pokemon.sprites.front_default
         });
 
-        if(pokemon.types.length === 2){
+        if (pokemon.types.length === 2) {
             this.setState({
                 type2: pokemon.types[1].type.name,
             })
