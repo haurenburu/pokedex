@@ -68,19 +68,42 @@ export default class Pokemon extends React.Component {
     }
 
     render() {
+        function firstUpper(name) {
+            if (name) {
+                name = name.split('');
+                name[0] = name[0].toUpperCase();
+                return name.join('');
+            }
+        }
+        function toBetterImg(id) {
+            if (id < 10) {
+                id = '00' + id;
+            } else if (id < 100) {
+                id = '0' + id;
+            }
+            return `https://assets.pokemon.com/assets/cms2/img/pokedex/full/${id}.png`;
+        }
         return (
-            <div>
-                <img src={this.state.sprite} alt="pokemon"></img>
-                <div>id: {this.state.id}</div>
-                <div>name: {this.state.name}</div>
-                <Type type={this.state.type1} />
-                {this.state.types === 2 ? <Type type={this.state.type2} /> : null}
-                <div>height: {this.state.height}</div>
-                <div>weight: {this.state.weight}</div>
-
-                <p>{this.props.poke}</p>
-                <button onClick={() => this.pokeChange(-1)}>Prev</button>
-                <button onClick={() => this.pokeChange(1)}>Next</button>
+            <div className="container">
+                <div className="row img-div">
+                    <img className="m-auto col-12 img-responsive mw" src={toBetterImg(this.state.id)} alt=""></img>
+                </div>
+                <div className="row">
+                    <div className="col text-center">{firstUpper(this.state.name)}</div>
+                    <div className="col text-center">id: {this.state.id}</div>
+                </div>
+                <div className="row justify-content-center abs">
+                    <Type className="col-5" type={this.state.type1} />
+                    {this.state.types === 2 ? <Type className="col-5 col-offset-2" type={this.state.type2} /> : null}
+                </div>
+                <div className="row justify-content-center">
+                    <div className="col text-center">Altura: {this.state.height}</div>
+                    <div className="col text-center">Peso: {this.state.weight}</div>
+                </div>
+                <div className="row justify-content-center">
+                    <button className="btn-primary" onClick={() => this.pokeChange(-1)}>Prev</button>
+                    <button className="btn-primary" onClick={() => this.pokeChange(1)}>Next</button>
+                </div>
                 {/* <img src={"https://assets.pokemon.com/assets/cms2/img/pokedex/detail/0" + this.state.id +".png"}></img> */}
             </div>
         );

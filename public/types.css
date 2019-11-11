@@ -1,10 +1,32 @@
 
 .Normal, .Lutador, .Voador, .Veneno, .Solo, .Pedra, .Inseto, .Fantasma, .Aco, .Fogo, .Agua, .Grama, .Eletrico, .Psiquico, .Gelo, .Dragao, .Sombrio, .Fada, .Desconhecido{
-    width: 100px;
     color: #fff;
     text-align: center;
     border-radius: 10px;
     border: 1px solid #000;
+}
+
+.img-div{
+    background-color: rgb(245, 245, 245);
+    border-color: #000;
+    border-width: 1px;
+    border-style: solid;
+}
+
+.container{
+    min-width: 400px;
+    width: 40%;
+    border-style: solid;
+    border-width: 5px;
+    border-color: rgb(214, 3, 3);
+    padding: 40px;
+    background-color: red;
+    color: white;
+    border-radius: 14px;
+}
+
+.mw{
+    max-width: 350px;
 }
 
 .Normal { background-color: #A8A878; }
