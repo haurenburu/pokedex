@@ -15,7 +15,7 @@ class Type extends React.Component {
             case 'fire': return 'Fogo';
             case 'water': return 'Agua';
             case 'grass': return 'Grama';
-            case 'eletric': return 'Eletrico';
+            case 'electric': return 'Eletrico';
             case 'psychic': return 'Psiquico';
             case 'ice': return 'Gelo';
             case 'dragon': return 'Dragao';
