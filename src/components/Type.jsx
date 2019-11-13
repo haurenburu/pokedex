@@ -26,7 +26,7 @@ class Type extends React.Component {
     }
     render() {
         return (
-            <div className={this.typo(this.props.type) + " col-5 mx-2"}>
+            <div className={this.typo(this.props.type) + " col-5 mx-2 font-weight-bold"}>
                 <p>{this.typo(this.props.type)}</p>
             </div>
         )

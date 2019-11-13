@@ -4,7 +4,7 @@ import Pokemon from './components/Pokemon';
 function App() {
   return (
     <div className="App">
-      <Pokemon url="1" />
+      <Pokemon url="57" />
     </div>
   );
 }
