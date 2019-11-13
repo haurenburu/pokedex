@@ -83,26 +83,32 @@ export default class Pokemon extends React.Component {
             }
             return `https://assets.pokemon.com/assets/cms2/img/pokedex/full/${id}.png`;
         }
+        function toMetric(val) {
+            return (val / 10).toFixed(2);
+        }
+
+
         return (
             <div className="container">
                 <div className="row img-div">
-                    <img className="m-auto col-12 img-responsive mw" src={toBetterImg(this.state.id)} alt=""></img>
+                    <img className="m-auto col-12 img-responsive mw" src={toBetterImg(this.state.id)} alt="Pokemon"></img>
+                    {/* <img className="m-auto col-12 img-responsive mw" src={this.state.sprite}></img> */}
                 </div>
                 <div className="row">
                     <div className="col text-center">{firstUpper(this.state.name)}</div>
                     <div className="col text-center">id: {this.state.id}</div>
                 </div>
-                <div className="row justify-content-center abs">
+                <div className="row justify-content-center abs mt-1">
                     <Type className="col-5" type={this.state.type1} />
-                    {this.state.types === 2 ? <Type className="col-5 col-offset-2" type={this.state.type2} /> : null}
+                    <Type className="col-5 col-offset-2" type={this.state.type2} />
                 </div>
-                <div className="row justify-content-center">
-                    <div className="col text-center">Altura: {this.state.height}</div>
-                    <div className="col text-center">Peso: {this.state.weight}</div>
+                <div className="row justify-content-center mt-1">
+                    <div className="col text-center">Altura: {toMetric(this.state.height)+"m"}</div>
+                    <div className="col text-center">Peso: {toMetric(this.state.weight)+"Kg"}</div>
                 </div>
-                <div className="row justify-content-center">
-                    <button className="btn-primary" onClick={() => this.pokeChange(-1)}>Prev</button>
-                    <button className="btn-primary" onClick={() => this.pokeChange(1)}>Next</button>
+                <div className="row justify-content-center mt-3">
+                    <button className="btn-primary mx-1 col-5" onClick={() => this.pokeChange(-1)}>Prev</button>
+                    <button className="btn-primary mx-1 col-5" onClick={() => this.pokeChange(1)}>Next</button>
                 </div>
                 {/* <img src={"https://assets.pokemon.com/assets/cms2/img/pokedex/detail/0" + this.state.id +".png"}></img> */}
             </div>

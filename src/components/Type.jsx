@@ -21,15 +21,16 @@ class Type extends React.Component {
             case 'dragon': return 'Dragao';
             case 'dark': return 'Sombrio';
             case 'fairy': return 'Fada';
-            default: return 'Desconhecido';
+            default: return '';
         }
     }
     render() {
         return (
-            <div className={this.typo(this.props.type) + " col-6"}>
+            <div className={this.typo(this.props.type) + " col-5 mx-2"}>
                 <p>{this.typo(this.props.type)}</p>
             </div>
         )
     }
 }
+
 export default Type;
